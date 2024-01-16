@@ -29,7 +29,7 @@ function AppTest() {
   const decrementTwo= ()=>{ setCountTwo(countTwo-1)}
   const resetTwo= ()=>{ setCountTwo(0)}
   const isEven = useMemo(()=>{
-    for(let i=0;i<=2000000000;i++){ }
+    for(let i=0;i<=200000000;i++){ }
     return countOne % 2 ===0
   },[countOne])
   const [name, setName] = useState('Nassima');
@@ -44,7 +44,7 @@ function AppTest() {
     <div className='buttonCont'>
     <button onClick={handleClick} >{name}</button>
     <button onClick={incrementOne} >CountOne {countOne}</button>
-    <span>{isEven? 'Even' : 'Odd'}</span>
+    <span style={{margin:'10px 0',height:'25px',width:'100px', backgroundColor:'white'}}>{isEven? 'Even' : 'Odd'}</span>
     <button onClick={incrementTwo} >+ 1 </button>
     <button onClick={decrementTwo} >- 1</button>
     <button onClick={resetTwo} >0  </button>
