@@ -40,7 +40,7 @@ function AppTest() {
   }, [countOne]);
   const [name, setName] = useState("Fatiha");
   function handleClick() {
-    name === "Nassima" ? setName("Warda") : setName("Fatiha");
+    name === "Fatiha" ? setName("Warda") : setName("Fatiha");
   }
   return (
     <>
