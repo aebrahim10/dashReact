@@ -8,14 +8,16 @@ import { tokens } from '../../theme';
 
 const Item = ({title, icon, selected, to, setSelected})=>{
   const theme = useTheme();
-  const colors = tokens(theme.pallete.mode)
+  const colors = tokens(theme.palette.mode)
+  console.log("Title : ",title)
   return(
   <MenuItem active={selected===title}
     icon={icon}
     style={{color:colors.grey[100]}}
     onClick={()=>setSelected(title)}
   >
-    <Typography variant='3'>{title}</Typography>
+    {title}
+    <Typography variant='h3'>{title}</Typography>
     <Link to={to} />
 
   </MenuItem>
@@ -29,8 +31,8 @@ function SidebarT() {
       <Typography variant='3'>Sidebar</Typography>
       <Sidebar collapsed={isCollapsed}>
         <Menu>
-        <Item title={'Counter'} icon={<HourglassEmptySharpIcon/>} to="/counter" selected={selected} setSlected={setSelected}/>
-        <Item title={'Toolbar'} icon={<HandymanTwoToneIcon/>} to="/toolbar" selected={selected} setSlected={setSelected}/>
+        <Item title="Counter" icon={<HourglassEmptySharpIcon/>} to="/counter" selected={selected} setSlected={setSelected}/>
+        <Item title="Toolbar" icon={<HandymanTwoToneIcon/>} to="/toolbar" selected={selected} setSlected={setSelected}/>
 
         </Menu>
       </Sidebar>
