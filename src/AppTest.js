@@ -1,11 +1,15 @@
-//import { ColorModeContext, useMode} from "./theme";
+import { ColorModeContext, useMode} from "./theme";
 import { CssBaseline, createTheme, ThemeProvider, colors } from "@mui/material";
 import { useMemo, useState } from "react";
 
 import Btn from "./componentsTest/Btn";
-import ToolBar from "./componentsTest/ToolBar";
+import Toolbar from "./componentsTest/ToolBar";
+import Counter from "./scenesTest/Counter";
+import Topbar from "./scenesTest/global/TopbarT"
 import MyApp from "./progTest/context/MyAppc";
 import Appm from "./progTest/memo/Appm";
+import SidebarT from "./scenesTest/global/SidebarT";
+import { Routes, Route } from "react-router-dom";
 const theme = createTheme({
   palette: {
     secondary: {
@@ -14,68 +18,17 @@ const theme = createTheme({
   },
 });
 function AppTest() {
-  const [countOne, setCountOne] = useState(0);
-  const [countTwo, setCountTwo] = useState(0);
-
-  const incrementOne = () => {
-    setCountOne(countOne + 1);
-  };
-  const incrementTwo = () => {
-    setCountTwo(countTwo + 1);
-  };
-  const incrementTwoByFive = () => {
-    for (let i = 0; i < 5; i++) {
-      setCountTwo((p) => p + 1);
-    }
-  };
-  const decrementTwo = () => {
-    setCountTwo(countTwo - 1);
-  };
-  const resetTwo = () => {
-    setCountTwo(0);
-  };
-  const isEven = useMemo(() => {
-    for (let i = 0; i <= 200000000; i++) {}
-    return countOne % 2 === 0;
-  }, [countOne]);
-  const [name, setName] = useState("Fatiha");
-  function handleClick() {
-    name === "Fatiha" ? setName("Warda") : setName("Fatiha");
-  }
+  const [theme, colorMode] = useMode();
   return (
     <>
       <ThemeProvider theme={theme}>
-        <ToolBar />
+        <SidebarT />
+        <Topbar />
+        <Routes>
+          <Route path="/toolbar" element={<Toolbar />} />
+          <Route path="/counter" element={<Counter />} />
+        </Routes> 
       </ThemeProvider>
-      <div className="buttonCont">
-        <button onClick={handleClick}>{name}</button>
-        <button onClick={incrementOne}>CountOne {countOne}</button>
-        <span
-          style={{
-            margin: "10px 0",
-            height: "25px",
-            width: "100px",
-            backgroundColor: "white",
-          }}
-        >
-          {isEven ? "Even" : "Odd"}
-        </span>
-        <button onClick={incrementTwo}>+ 1 </button>
-        <button onClick={decrementTwo}>- 1</button>
-        <button onClick={resetTwo}>0 </button>
-        <button onClick={incrementTwoByFive}>+ 5 </button>
-
-        <button
-          style={{
-            border: "2px blue solid",
-            width: "100px",
-            background: "cyan",
-          }}
-        >
-          {countTwo}
-        </button>
-      </div>
-      <MyApp />
       {/* <Appm /> */}
     </>
   );
