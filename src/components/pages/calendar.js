@@ -85,7 +85,7 @@ function Calendar() {
         {/* CALENDAR */}
         <Box flex="1 1 100%" ml="15px">
           <FullCalendar
-            height="75vh"
+            height="65vh"
             plugins={[
               dayGridPlugin,
               timeGridPlugin,
@@ -109,12 +109,12 @@ function Calendar() {
               {
                 id: "12315",
                 title: "All-day event",
-                date: "2022-09-14",
+                date: "2024-09-14",
               },
               {
                 id: "5123",
                 title: "Timed event",
-                date: "2022-09-28",
+                date: "2024-09-28",
               },
             ]}
           />

@@ -7,6 +7,7 @@ import * as yup from "yup";
 
 function Login() {
   const [user, setUser] = useState([{}])
+  const [err, setErr] = useState(null)
   useEffect(()=>{ 
     fetch("/api").then(response=>response.json()).then(data=>{setUser(data); console.log("User :",user) })
      },[])
@@ -17,9 +18,17 @@ function Login() {
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify(values)
-    }).then(response => response.json())
+    }).then(response => {
+             if (err && !err.ok){
+              throw Error("Error",Error.message)
+
+             }
+             console.log(response)
+             response.json()  })
     .then(data => console.log(data))
-    .catch(error => console.error(error));
+    .catch(error => {
+      setErr(error.message);
+      console.error(error)});
    }
      
 
@@ -29,6 +38,7 @@ function Login() {
      <Grid sx={{m:'10px auto', width:'400px' }} >
       <Avatar sx={{m:'10px 0'}}   size='large' ><LockOpenSharpIcon /></Avatar>
       <Typography variant='h3' sx={{m:'20px 0'}} >Login</Typography>
+      {err && <div style={{color: 'red'}}>{err}</div>}
      </Grid>
         <Formik onSubmit={handleFormSubmit} initialValues={initialValues} validationSchema={checkoutSchema}>
         {({values,errors,touched,handleBlur,handleChange,handleSubmit})=>(

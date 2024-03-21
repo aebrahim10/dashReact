@@ -20,7 +20,8 @@ export default function Header(props){
             <Toolbar>
                 <Grid container spacing={5} alignItems="center">
                     <Grid item>
-                     <Typography variant='h4' sx={{textAlign:'center'}}>Light Ride, LLC</Typography>
+                     <Typography variant='h4' sx={{fontFamily: "cursive", textAlign:'center'}}>
+                        Light Ride, LLC</Typography>
                    </Grid>
                     <Grid sx={{display: { sm:'none', xs:'block'}}} item>
                         <IconButton
@@ -34,19 +35,7 @@ export default function Header(props){
                    <Grid item xs />
                    <Grid item>
                     <DisplayDate />
-                        
-                        
-                    {/* <Link href="/" variant="body2" 
-                          sx={{ textDecoration : 'none', 
-                                color : lightColor,
-                                '&:hoover':{ 
-                                    color:'common.white'}
-                                }}
-                          rel="noopener noreferer"
-                          target="_blank">
-                            Go to docs
-                          </Link> */}
-                   </Grid> 
+                    </Grid> 
                    <Grid item>
                     <Tooltip title="Alerts • No alerts">
                         <IconButton color="inherit">

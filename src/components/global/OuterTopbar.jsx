@@ -15,9 +15,9 @@ function OuterTopbar() {
         backgroundSize: '100% 100%',
         backgroundColor: '#eb3449', 
         maxWidth: 'none',
-        width:'100%', height:'30%'}}>
+        width:'100%', height:'20%'}}>
         <Box sx={{width:'30%'}}>
-            <Typography variant="h2">Company</Typography> 
+            <Typography variant="h2" sx={{fontFamily: "cursive"}}>Light Ride, LLC.</Typography> 
         </Box>
         <Box sx={{width:'70%', alignSelf:'flex-end'}}>    
             <Topbar />
