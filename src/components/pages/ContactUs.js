@@ -10,6 +10,7 @@ import {Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '
 import ContactImage from './../../img/carOnARoad.jpg'
 
 export default function ContactUs() {
+  console.log("env Variable = ", process.env.REACT_APP_SERVERPORT )
   return (
     <Box m='20px'>
         <Header title='Contact Us' subtitle='Reach us through the following method.' />

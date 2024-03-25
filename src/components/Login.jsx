@@ -8,38 +8,51 @@ import * as yup from "yup";
 function Login() {
   const [user, setUser] = useState([{}])
   const [err, setErr] = useState(null)
+  const [apiStatus, setApiStatus] = useState(null)
+  var code = 0;
+  const httpRespCodes={
+    100:"Informational responses",
+    200:"Success",
+    300:"Response redirected",
+    400:"Client error responses",
+    500:"Internal Server Error"
+  }
   useEffect(()=>{ 
     fetch("/api").then(response=>response.json()).then(data=>{setUser(data); console.log("User :",user) })
+    .catch(error=>{setErr(error);
+                  console.log("Error is :============  ",err) })
      },[])
 
   const handleFormSubmit= (values)=>{
     
     const result = fetch('/add',{
         method:'POST',
-        headers:{'Content-Type':'application/json'},
+        headers:{'Content-Type': 'application/json',
+                  'Accept': 'application/json'},
         body:JSON.stringify(values)
     }).then(response => {
-             if (err && !err.ok){
+            console.log("response = ",response)
+            if (response?.ok) {
+              response.json()
+            } else {
+              code=response?.status.toString().charAt(0).concat('00')
+              setApiStatus(`HTTP Response Code: ${response?.status} ${httpRespCodes[code]}`)
               throw Error("Error",Error.message)
-
-             }
-             console.log(response)
-             response.json()  })
+            }
+     })
     .then(data => console.log(data))
     .catch(error => {
-      setErr(error.message);
-      console.error(error)});
+      setErr(error);   
+    });
    }
-     
-
   return (
     <Box  m='20px'>
     <Header title='Login' subtitle='Signup or Register' />
      <Grid sx={{m:'10px auto', width:'400px' }} >
       <Avatar sx={{m:'10px 0'}}   size='large' ><LockOpenSharpIcon /></Avatar>
       <Typography variant='h3' sx={{m:'20px 0'}} >Login</Typography>
-      {err && <div style={{color: 'red'}}>{err}</div>}
-     </Grid>
+      {apiStatus &&  <div style={{color: 'red'}}>{apiStatus}</div>}
+      </Grid>
         <Formik onSubmit={handleFormSubmit} initialValues={initialValues} validationSchema={checkoutSchema}>
         {({values,errors,touched,handleBlur,handleChange,handleSubmit})=>(
             <form onSubmit={handleSubmit}>
@@ -74,7 +87,6 @@ function Login() {
     </Box>
   )
 }
-
 const checkoutSchema = yup.object().shape({
     email: yup.string().required("required").email('This email is invalid.').min(7,"The username is too short"),
     password: yup.string().required("required").min(5,"The password is too short"),
@@ -84,5 +96,4 @@ const checkoutSchema = yup.object().shape({
     password: "",
   };
   
-
 export default Login

@@ -1,12 +1,13 @@
+var code = 508;
+var code00= code.toString().charAt(0).concat('00')
+console.log("code00 = ",code00)
+
 var {fruits} = require('./data.js')
 var {someNumbers} = require('./data.js')
-
-
 console.log('fruits: ', fruits)
 fruits.push('kiwis')
 console.log('fruits: ',...fruits)
 var banner=''
-
 function findNamesWithChar(c){
     fruits.forEach(element => {
         if(element.includes(c)){
@@ -77,4 +78,6 @@ function invokeAfterDelay(callback) {
     .catch(error => {
       console.log('Error:', error.message);
     });
+
+
   
