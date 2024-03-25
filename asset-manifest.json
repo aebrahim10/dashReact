@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/dashReact/static/css/main.6cb2b5cb.css",
+    "main.js": "/dashReact/static/js/main.c557b94b.js",
+    "static/media/LightRideCar3.JPG": "/dashReact/static/media/LightRideCar3.37059989400dc5a29276.JPG",
+    "static/media/map3r.jpg": "/dashReact/static/media/map3r.2a974cedfee70f7cd7a3.jpg",
+    "static/media/carOnARoad.jpg": "/dashReact/static/media/carOnARoad.34f4268855952b34184c.jpg",
+    "static/media/sky_0.jpg": "/dashReact/static/media/sky_0.76edf75d7d6a346883aa.jpg",
+    "index.html": "/dashReact/index.html",
+    "main.6cb2b5cb.css.map": "/dashReact/static/css/main.6cb2b5cb.css.map",
+    "main.c557b94b.js.map": "/dashReact/static/js/main.c557b94b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6cb2b5cb.css",
+    "static/js/main.c557b94b.js"
+  ]
+}
