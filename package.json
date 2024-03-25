@@ -1,7 +1,8 @@
 {
   "name": "dash_react_admin",
   "version": "0.1.0",
-  "proxy":"http://localhost:5000",
+  "proxy": "http://localhost:5000",
+  "homepage":"https://aebrahim10.github.com/dashReact",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -20,9 +21,6 @@
     "@nivo/geo": "^0.84.0",
     "@nivo/line": "^0.84.0",
     "@nivo/pie": "^0.84.0",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "formik": "^2.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -33,6 +31,8 @@
     "yup": "^1.3.2"
   },
   "scripts": {
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -55,5 +55,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
