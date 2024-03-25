@@ -7,7 +7,6 @@ import { Box } from '@mui/material';
 import Header from './../Header'
 import CapitalRegMap from './../../img/map3r.jpg'
 
-
 export default function Services() {
   return (
      <Box m='20px'>

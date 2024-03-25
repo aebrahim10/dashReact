@@ -1,5 +1,5 @@
 import React from 'react'
-import bgpic from './../../images/sky_0.jpg'
+import bgpic from './../../img/sky_0.jpg'
 import { Box, Typography } from '@mui/material'
 import Topbar from './Topbar'
 
