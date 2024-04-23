@@ -25,7 +25,7 @@ function Login() {
 
   const handleFormSubmit= (values)=>{
     
-    const result = fetch('/add',{
+    const result = fetch('/addUser',{
         method:'POST',
         headers:{'Content-Type': 'application/json',
                   'Accept': 'application/json'},
@@ -42,7 +42,8 @@ function Login() {
      })
     .then(data => console.log(data))
     .catch(error => {
-      setErr(error);   
+      setErr(error); 
+      console.log("error.response = ",error.response)
     });
    }
   return (
