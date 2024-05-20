@@ -73,7 +73,7 @@ function SidebarT() {
         <Item title="Services" to="/services" icon={<EmojiTransportationIcon/>} selected={selected} setSelected={setSelected}/>
         <Item title="Contacts" to="/contactUs" icon={<PhoneIcon/>} selected={selected} setSelected={setSelected}/>
         <Item title="Contact Form" to="/form" icon={<ContactMailIcon/>} selected={selected} setSelected={setSelected}/>
-        <Item title="Profile" to="/form" icon={<PortraitIcon/>} selected={selected} setSelected={setSelected}/>
+        <Item title="Profile" to="/profile" icon={<PortraitIcon/>} selected={selected} setSelected={setSelected}/>
         <Item title="Calendar" to="/calendar" icon={<CalendarMonthIcon/>} selected={selected} setSelected={setSelected}/>
         </Menu>
       </ProSidebar>
